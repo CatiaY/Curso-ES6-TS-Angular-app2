@@ -1,0 +1,60 @@
+<div class="fixed-top">
+  <nav class="navbar navbar-light bg-faded">
+    <div class="container">
+      
+      <div class="row">
+
+        <div class="col-md-4">
+          <a class="navbar-brand" routerLink=""> <!--routerLink aponta para a raiz da aplicação-->
+            <img src="/assets/logo.png" />
+          </a>
+        </div>
+
+        <div class="col-md-6">
+          <input type="text" 
+          class="form-control"           
+          placeholder="Pesquise por ofertas..." 
+          #termoDaPesquisa
+          (keyup)="pesquisa(termoDaPesquisa.value)"  
+          /> 
+          <!-- evento keyup ocorre quando a tecla sobe após ser pressionada. Ele chamará a função pesquisa().
+          "pesquisa($event)" recebe como parâmetro todo o elemento. Utilizando a variável de referência #termoDaPesquisa, é possível enviar um dado específico -->
+
+          <!-- A propriedade z-index:999 faz com que esse elemento se sobreponha aos demais (tenha prioridade durante o click do mouse ou empurre para baixo os demais elementos)-->
+          <ul class="list-group" stule="position:absolute">
+            <!-- O pipe async recupera diretamente os dados do Observable ofertas no momento em que eles forem produzidos -->
+            <li class="list-group-item" *ngFor="let oferta of ofertas | async">
+              <!-- Ao clicar no link, dispara um evento para limpar o menu -->
+              <a [routerLink]="['/oferta', oferta.id]" (click)="limpaPesquisa()">
+                {{ oferta.titulo | descricaoReduzida:15 }}
+              </a>
+            </li>            
+          </ul>
+
+        </div>
+
+        <div class="col-md-2">
+          <a routerLink="/ordem-compra"><img src="/assets/carrinho.png" /></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="menu">
+    <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <!-- Usar routerLink -->
+          <a class="nav-link" routerLinkActive="active" routerLink="/restaurantes">Restaurantes</a>          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="/diversao">Diversão</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="banner">
+  <img src="/assets/banners/img_1.jpg" />
+</div>

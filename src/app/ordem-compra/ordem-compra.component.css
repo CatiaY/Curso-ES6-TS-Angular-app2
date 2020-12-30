@@ -1,0 +1,24 @@
+.ordem-compra {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+/* Aplica esse estilo somente para elementos do tipo input e que foram tocados (touched) */
+input.ng-invalid.ng-touched {
+    border: 2px solid red
+}
+
+/* Aplica esse estilo somente para elementos do tipo select e que foram tocados (touched) */
+select.ng-invalid.ng-touched {
+    border: 2px solid red
+}
+
+/* Aplica esse estilo somente para elementos do tipo input e que foram tocados (touched) */
+input.ng-valid.ng-touched {
+    border: 2px solid green
+}
+
+/* Aplica esse estilo somente para elementos do tipo select e que foram tocados (touched) */
+select.ng-valid.ng-touched {
+    border: 2px solid green
+}
